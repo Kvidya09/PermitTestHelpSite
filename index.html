@@ -292,14 +292,57 @@
     closeChat.addEventListener('click', hideChat);
     chatModal.addEventListener('click', (e)=>{ if(e.target === chatModal) hideChat(); });
 
-    document.getElementById('chat-send').addEventListener('click', () => {
-      const input = document.getElementById('chat-input');
-      const win = document.getElementById('chat-window');
-      if(!input.value.trim()) return;
-      const p = document.createElement('div'); p.className='text-sm text-gray-700 mt-2'; p.textContent = 'User: ' + input.value; win.appendChild(p);
-      const resp = document.createElement('div'); resp.className='text-sm text-gray-800 mt-2 font-medium'; resp.textContent = 'Thank you for contacting City Permitting Assistant, what can I help you with today?'; win.appendChild(resp);
-      input.value=''; win.scrollTop = win.scrollHeight;
+    const chatEndpoint = "https://winter-mountain-087c.kantamneni-v.workers.dev/"; // <-- paste your Worker URL
+
+async function sendChat() {
+  const input = document.getElementById('chat-input');
+  const win = document.getElementById('chat-window');
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  // Show user message
+  const userDiv = document.createElement('div');
+  userDiv.className = 'text-sm text-gray-700 mt-2';
+  userDiv.textContent = 'You: ' + msg;
+  win.appendChild(userDiv);
+  input.value = '';
+
+  // Typing indicator
+  const typing = document.createElement('div');
+  typing.className = 'text-sm text-gray-400 mt-2 italic';
+  typing.textContent = 'Assistant is typing…';
+  win.appendChild(typing);
+  win.scrollTop = win.scrollHeight;
+
+  try {
+    const res = await fetch(chatEndpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: msg })
     });
+    const text = await res.text();
+
+    typing.remove();
+    const bot = document.createElement('div');
+    bot.className = 'text-sm text-gray-800 mt-2 font-medium';
+    bot.textContent = text;
+    win.appendChild(bot);
+    win.scrollTop = win.scrollHeight;
+  } catch (e) {
+    typing.remove();
+    const err = document.createElement('div');
+    err.className = 'text-sm text-red-600 mt-2';
+    err.textContent = 'Network error contacting the assistant.';
+    win.appendChild(err);
+  }
+}
+
+document.getElementById('chat-send').addEventListener('click', sendChat);
+// Optional: press Enter to send
+document.getElementById('chat-input').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChat(); }
+});
   </script>
 </body>
 </html>
+
