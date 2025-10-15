@@ -459,8 +459,7 @@ if (questionForm) questionForm.addEventListener('submit', async (e) => {
 
     // Cloudflare Worker chat endpoint (kept)
     const chatEndpoint = "https://permit-assistant.kantamneni-v.workers.dev/chat";
-    const EMAIL_ENDPOINT = "https://permit-assistant.kantamneni-v.workers.dev/send-question";
-    async function sendChat(){
+        async function sendChat(){
       const input = document.getElementById('chat-input');
       const win = document.getElementById('chat-window');
       if (!input || !win) return;
@@ -509,4 +508,5 @@ if (questionForm) questionForm.addEventListener('submit', async (e) => {
   </script>
 </body>
 </html>
+
 
