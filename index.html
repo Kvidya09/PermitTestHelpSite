@@ -20,12 +20,6 @@
   </style>
 </head>
 <body class="bg-gray-50 font-sans text-slate-900">
-  <noscript>
-    <div style="padding:12px;background:#fee2e2;color:#7f1d1d;text-align:center">
-      This site requires JavaScript to function.
-    </div>
-  </noscript>
-
   <main class="app-shell bg-white pb-20 md:pb-0">
     <header class="bg-blue-500 text-white p-4 sm:p-6 md:p-8">
       <div class="max-w-6xl mx-auto flex items-center justify-between gap-4">
@@ -48,7 +42,7 @@
           <a href="#upcoming" class="block text-slate-700">Promote your upcoming businesses</a>
         </nav>
 
-        <!-- Sidebar Search -->
+        <!-- Search -->
         <div class="mt-6">
           <h3 class="text-lg font-semibold mb-2">Search</h3>
           <div class="relative mb-6">
@@ -61,15 +55,15 @@
         <div class="mt-8">
           <h3 class="text-xl font-semibold mb-3">Useful links</h3>
           <ul class="space-y-3 text-slate-700 text-sm">
-            <li><a href="https://planning.baltimorecity.gov/" target="_blank" rel="noopener noreferrer" class="hover:underline">City Planning Department</a></li>
-            <li><a href="https://dhcd.baltimorecity.gov/permits/permits-commercial" target="_blank" rel="noopener noreferrer" class="hover:underline">Commercial Permit Guidelines</a></li>
-            <li><a href="https://dhcd.baltimorecity.gov/permits/permits-residential" target="_blank" rel="noopener noreferrer" class="hover:underline">Residential Permit Checklist</a></li>
-            <li><a href="https://dhcd.baltimorecity.gov/permits/demolition" target="_blank" rel="noopener noreferrer" class="hover:underline">Demolition Permit Requirements</a></li>
-            <li><a href="https://dhcd.baltimorecity.gov/permits/use-occupancy" target="_blank" rel="noopener noreferrer" class="hover:underline">Use & Occupancy Forms</a></li>
-            <li><a href="https://bcrp.baltimorecity.gov/special-events-permitting" target="_blank" rel="noopener noreferrer" class="hover:underline">Special Events Permitting</a></li>
-            <li><a href="https://transportation.baltimorecity.gov/right-way-services-permits" target="_blank" rel="noopener noreferrer" class="hover:underline">ROW (Right-of-Way) Permits</a></li>
-            <li><a href="https://llb.baltimorecity.gov/" target="_blank" rel="noopener noreferrer" class="hover:underline">Liquor Board / Alcohol Licensing</a></li>
-            <li><a href="https://dhcd.baltimorecity.gov/permits" target="_blank" rel="noopener noreferrer" class="hover:underline">Temporary Permits & Short-Term Approvals</a></li>
+            <li><a href="https://planning.baltimorecity.gov/" target="_blank" rel="noopener" class="hover:underline">City Planning Department</a></li>
+            <li><a href="https://dhcd.baltimorecity.gov/permits/permits-commercial" target="_blank" rel="noopener" class="hover:underline">Commercial Permit Guidelines</a></li>
+            <li><a href="https://dhcd.baltimorecity.gov/permits/permits-residential" target="_blank" rel="noopener" class="hover:underline">Residential Permit Checklist</a></li>
+            <li><a href="https://dhcd.baltimorecity.gov/permits/demolition" target="_blank" rel="noopener" class="hover:underline">Demolition Permit Requirements</a></li>
+            <li><a href="https://dhcd.baltimorecity.gov/permits/use-occupancy" target="_blank" rel="noopener" class="hover:underline">Use & Occupancy Forms</a></li>
+            <li><a href="https://bcrp.baltimorecity.gov/special-events-permitting" target="_blank" rel="noopener" class="hover:underline">Special Events Permitting</a></li>
+            <li><a href="https://transportation.baltimorecity.gov/right-way-services-permits" target="_blank" rel="noopener" class="hover:underline">ROW (Right-of-Way) Permits</a></li>
+            <li><a href="https://llb.baltimorecity.gov/" target="_blank" rel="noopener" class="hover:underline">Liquor Board / Alcohol Licensing</a></li>
+            <li><a href="https://dhcd.baltimorecity.gov/permits" target="_blank" rel="noopener" class="hover:underline">Temporary Permits & Short-Term Approvals</a></li>
           </ul>
 
           <!-- Submit Question Button -->
@@ -84,19 +78,13 @@
         <div id="permitting">
           <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
             <h2 class="text-xl sm:text-2xl font-semibold">Learn and Discuss City's Different Permits</h2>
-            <button id="start-discussion-btn" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium shadow-sm w-full sm:w-auto" title="Start a discussion to get input from peers, city staff, and the public about your question and comments. You can also respond to other discussions.">Start Discussion</button>
+            <button id="start-discussion-btn" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium shadow-sm w-full sm:w-auto" title="Start a discussion to get input from peers, city staff, and the public about your question and comments.">Start Discussion</button>
           </div>
 
           <div class="bg-gray-50 p-4 rounded-lg mb-6">
             <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-gray-700">
-              <li><a href="https://dhcd.baltimorecity.gov/permits/permits-commercial" target="_blank" class="text-blue-600 hover:underline">• Commercial Permits</a></li>
-              <li><a href="https://dhcd.baltimorecity.gov/permits/permits-residential" target="_blank" class="text-blue-600 hover:underline">• Residential Permits</a></li>
-              <li><a href="https://dhcd.baltimorecity.gov/permits/demolition" target="_blank" class="text-blue-600 hover:underline">• Demolition Permits</a></li>
-              <li><a href="https://dhcd.baltimorecity.gov/permits/use-occupancy" target="_blank" class="text-blue-600 hover:underline">• Use & Occupancy Permits</a></li>
-              <li><a href="https://bcrp.baltimorecity.gov/special-events-permitting" target="_blank" class="text-blue-600 hover:underline">• Special Events Permits</a></li>
-              <li><a href="https://transportation.baltimorecity.gov/right-way-services-permits" target="_blank" class="text-blue-600 hover:underline">• ROW Permits</a></li>
-              <li><a href="https://llb.baltimorecity.gov/" target="_blank" class="text-blue-600 hover:underline">• Liquor Board Permits</a></li>
-              <li><a href="https://dhcd.baltimorecity.gov/permits" target="_blank" class="text-blue-600 hover:underline">• Temporary Permits</a></li>
+              <li>• Commercial Permits</li><li>• Residential Permits</li><li>• Demolition Permits</li><li>• Use & Occupancy Permits</li>
+              <li>• Special Events Permits</li><li>• ROW Permits</li><li>• Liquor Board Permits</li><li>• Temporary Permits</li>
             </ul>
           </div>
 
@@ -106,7 +94,7 @@
               <div class="flex items-start gap-4">
                 <div class="icon-bubble bg-blue-100 text-blue-600">🏗️</div>
                 <div>
-                  <h3 class="text-lg font-semibold"><a href="#discussion1" class="hover:underline text-blue-700">Understanding Zoning Laws</a></h3>
+                  <h3 class="text-lg font-semibold"><a href="#" class="hover:underline text-blue-700">Understanding Zoning Laws</a></h3>
                   <p class="text-sm text-gray-500">John — 2 hours ago</p>
                   <p class="text-xs text-gray-400">120 views • 15 likes</p>
                 </div>
@@ -118,7 +106,7 @@
               <div class="flex items-start gap-4">
                 <div class="icon-bubble bg-green-100 text-green-600">📋</div>
                 <div>
-                  <h3 class="text-lg font-semibold"><a href="#discussion2" class="hover:underline text-blue-700">Tips for Obtaining a Building Permit</a></h3>
+                  <h3 class="text-lg font-semibold"><a href="#" class="hover:underline text-blue-700">Tips for Obtaining a Building Permit</a></h3>
                   <p class="text-sm text-gray-500">Sarah — 4 hours ago</p>
                   <p class="text-xs text-gray-400">98 views • 20 likes</p>
                 </div>
@@ -130,7 +118,7 @@
               <div class="flex items-start gap-4">
                 <div class="icon-bubble bg-blue-100 text-blue-600">🧱</div>
                 <div>
-                  <h3 class="text-lg font-semibold"><a href="#discussion3" class="hover:underline text-blue-700">Navigating the Inspection Process</a></h3>
+                  <h3 class="text-lg font-semibold"><a href="#" class="hover:underline text-blue-700">Navigating the Inspection Process</a></h3>
                   <p class="text-sm text-gray-500">Michael — 1 day ago</p>
                   <p class="text-xs text-gray-400">76 views • 8 likes</p>
                 </div>
@@ -140,7 +128,7 @@
           </div>
         </div>
 
-        <!-- Businesses Section -->
+        <!-- Businesses -->
         <div id="upcoming" class="mt-12">
           <h2 class="text-2xl font-semibold mb-4">Promote your upcoming businesses</h2>
           <div class="space-y-4 mb-12">
@@ -148,7 +136,7 @@
               <div class="flex items-start gap-4">
                 <div class="icon-bubble bg-green-100 text-green-600">🍽️</div>
                 <div>
-                  <h3 class="text-lg font-semibold"><a href="#business1" class="hover:underline text-blue-700">New Restaurant Opening</a></h3>
+                  <h3 class="text-lg font-semibold"><a href="#" class="hover:underline text-blue-700">New Restaurant Opening</a></h3>
                   <p class="text-sm text-gray-500">Lisa — 1 day ago</p>
                   <p class="text-xs text-gray-400">320 views • 45 likes</p>
                 </div>
@@ -160,7 +148,7 @@
               <div class="flex items-start gap-4">
                 <div class="icon-bubble bg-green-100 text-green-600">🏬</div>
                 <div>
-                  <h3 class="text-lg font-semibold"><a href="#business2" class="hover:underline text-blue-700">Boutique Retail Store Plans</a></h3>
+                  <h3 class="text-lg font-semibold"><a href="#" class="hover:underline text-blue-700">Boutique Retail Store Plans</a></h3>
                   <p class="text-sm text-gray-500">David — 2 days ago</p>
                   <p class="text-xs text-gray-400">250 views • 30 likes</p>
                 </div>
@@ -213,7 +201,7 @@
     </div>
   </main>
 
-  <!-- ===== Modals (needed by the JS) ===== -->
+  <!-- ===== Modals ===== -->
   <!-- Start Discussion Modal -->
   <div id="start-discussion-modal" class="fixed inset-0 bg-black bg-opacity-40 hidden items-center justify-center p-3" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="start-discussion-title">
     <div class="modal-panel bg-white rounded-lg shadow-lg p-4 sm:p-6 w-11/12 sm:w-96" role="document">
@@ -222,26 +210,17 @@
       <form id="start-discussion-form" class="space-y-3">
         <label class="text-sm font-medium" for="topic">Topic</label>
         <select id="topic" class="w-full border border-gray-300 rounded-md p-2">
-          <option>Permits</option>
-          <option>Zoning laws</option>
-          <option>Appeals</option>
-          <option>Permit fees</option>
-          <option>Inspections</option>
-          <option>Other</option>
+          <option>Permits</option><option>Zoning laws</option><option>Appeals</option>
+          <option>Permit fees</option><option>Inspections</option><option>Other</option>
         </select>
 
         <div id="permit-type-wrap" class="hidden">
           <label class="text-sm mt-2 block" for="permit-type">Permit type</label>
           <select id="permit-type" class="w-full border border-gray-300 rounded-md p-2">
-            <option>Commercial Permits</option>
-            <option>Residential Permits</option>
-            <option>Demolition Permits</option>
-            <option>Use &amp; Occupancy Permits</option>
-            <option>Special Events Permits</option>
-            <option>ROW (Right-of-Way) Permits</option>
-            <option>Liquor Board Permits</option>
-            <option>Temporary Permits</option>
-            <option>Other / Not sure</option>
+            <option>Commercial Permits</option><option>Residential Permits</option><option>Demolition Permits</option>
+            <option>Use &amp; Occupancy Permits</option><option>Special Events Permits</option>
+            <option>ROW (Right-of-Way) Permits</option><option>Liquor Board Permits</option>
+            <option>Temporary Permits</option><option>Other / Not sure</option>
           </select>
         </div>
 
@@ -267,26 +246,17 @@
       <form id="question-form" class="space-y-3">
         <label class="text-sm font-medium" for="q-topic">Topic</label>
         <select id="q-topic" class="w-full border border-gray-300 rounded-md p-2">
-          <option>Permits</option>
-          <option>Zoning laws</option>
-          <option>Appeals</option>
-          <option>Permit fees</option>
-          <option>Inspections</option>
-          <option>Other</option>
+          <option>Permits</option><option>Zoning laws</option><option>Appeals</option>
+          <option>Permit fees</option><option>Inspections</option><option>Other</option>
         </select>
 
         <div id="q-permit-type-wrap" class="hidden">
           <label class="text-sm mt-2 block" for="q-permit-type">Permit type</label>
           <select id="q-permit-type" class="w-full border border-gray-300 rounded-md p-2">
-            <option>Commercial Permits</option>
-            <option>Residential Permits</option>
-            <option>Demolition Permits</option>
-            <option>Use &amp; Occupancy Permits</option>
-            <option>Special Events Permits</option>
-            <option>ROW (Right-of-Way) Permits</option>
-            <option>Liquor Board Permits</option>
-            <option>Temporary Permits</option>
-            <option>Other / Not sure</option>
+            <option>Commercial Permits</option><option>Residential Permits</option><option>Demolition Permits</option>
+            <option>Use &amp; Occupancy Permits</option><option>Special Events Permits</option>
+            <option>ROW (Right-of-Way) Permits</option><option>Liquor Board Permits</option>
+            <option>Temporary Permits</option><option>Other / Not sure</option>
           </select>
         </div>
 
@@ -319,13 +289,13 @@
     </div>
   </div>
 
-  <!-- Scripts (defer for safety) -->
-  <script defer>
-    // ===== ENDPOINTS (Cloudflare Worker) =====
+  <!-- Scripts -->
+  <script>
+    // ===== Worker endpoints =====
     const chatEndpoint = "https://permit-assistant.kantamneni-v.workers.dev/chat";
     const EMAIL_ENDPOINT = "https://permit-assistant.kantamneni-v.workers.dev/send-question";
 
-    // Mobile sidebar toggle
+    // Sidebar toggle
     const sidebarToggle = document.getElementById('sidebar-toggle');
     const sidebar = document.getElementById('sidebar');
     if (sidebarToggle && sidebar) {
@@ -333,18 +303,15 @@
         sidebar.classList.toggle('hidden');
         if (!sidebar.classList.contains('hidden')) sidebar.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
-      sidebar.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-        if (window.innerWidth < 768) sidebar.classList.add('hidden');
-      }));
+      sidebar.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { if (window.innerWidth < 768) sidebar.classList.add('hidden'); }));
     }
 
-    // Accessibility helpers
+    // Accessible modal helpers
     const focusableSelector = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
     let lastActive = null;
     function openModal(modal){
       if (!modal) return;
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
+      modal.classList.remove('hidden'); modal.classList.add('flex');
       modal.setAttribute('aria-hidden', 'false');
       lastActive = document.activeElement;
       const focusables = modal.querySelectorAll(focusableSelector);
@@ -354,8 +321,7 @@
         if (e.key === 'Tab'){
           const list = Array.from(modal.querySelectorAll(focusableSelector)).filter(el => !el.hasAttribute('disabled'));
           if (!list.length) return;
-          const first = list[0];
-          const last = list[list.length-1];
+          const first = list[0], last = list[list.length-1];
           if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
           else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
         }
@@ -365,8 +331,7 @@
     }
     function closeModal(modal){
       if (!modal) return;
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
+      modal.classList.add('hidden'); modal.classList.remove('flex');
       modal.setAttribute('aria-hidden', 'true');
       if (modal._onKeydown) document.removeEventListener('keydown', modal._onKeydown);
       if (lastActive) lastActive.focus();
@@ -381,17 +346,15 @@
     const permitWrap = document.getElementById('permit-type-wrap');
     const showStartModal = () => openModal(startModal);
     const hideStartModal = () => closeModal(startModal);
-    startBtn && startBtn.addEventListener('click', showStartModal);
-    startCancel && startCancel.addEventListener('click', hideStartModal);
-    startClose && startClose.addEventListener('click', hideStartModal);
-    startModal && startModal.addEventListener('click', (e)=>{ if(e.target === startModal) hideStartModal(); });
-    function updatePermitVisibility(){ permitWrap && topicSel && permitWrap.classList.toggle('hidden', topicSel.value !== 'Permits'); }
-    topicSel && topicSel.addEventListener('change', updatePermitVisibility);
-    updatePermitVisibility();
-    const startForm = document.getElementById('start-discussion-form');
-    if (startForm) startForm.addEventListener('submit', (e)=>{ e.preventDefault(); alert('Discussion submitted (demo).'); hideStartModal(); });
+    startBtn?.addEventListener('click', showStartModal);
+    startCancel?.addEventListener('click', hideStartModal);
+    startClose?.addEventListener('click', hideStartModal);
+    startModal?.addEventListener('click', (e)=>{ if(e.target === startModal) hideStartModal(); });
+    function updatePermitVisibility(){ permitWrap?.classList.toggle('hidden', topicSel?.value !== 'Permits'); }
+    topicSel?.addEventListener('change', updatePermitVisibility); updatePermitVisibility();
+    document.getElementById('start-discussion-form')?.addEventListener('submit', (e)=>{ e.preventDefault(); alert('Discussion submitted (demo).'); hideStartModal(); });
 
-    // Submit Question modal
+    // Question modal
     const questionModal = document.getElementById('question-modal');
     const openQuestion = document.getElementById('submit-question-header');
     const cancelQuestion = document.getElementById('cancel-form');
@@ -400,23 +363,19 @@
     const qPermitWrap = document.getElementById('q-permit-type-wrap');
     const showQuestion = () => openModal(questionModal);
     const hideQuestion = () => closeModal(questionModal);
-    openQuestion && openQuestion.addEventListener('click', showQuestion);
-    cancelQuestion && cancelQuestion.addEventListener('click', hideQuestion);
-    closeQuestion && closeQuestion.addEventListener('click', hideQuestion);
-    questionModal && questionModal.addEventListener('click', (e)=>{ if(e.target === questionModal) hideQuestion(); });
-    function updateQPermitVisibility(){ qPermitWrap && qTopicSel && qPermitWrap.classList.toggle('hidden', qTopicSel.value !== 'Permits'); }
-    qTopicSel && qTopicSel.addEventListener('change', updateQPermitVisibility);
-    updateQPermitVisibility();
+    openQuestion?.addEventListener('click', showQuestion);
+    cancelQuestion?.addEventListener('click', hideQuestion);
+    closeQuestion?.addEventListener('click', hideQuestion);
+    questionModal?.addEventListener('click', (e)=>{ if(e.target === questionModal) hideQuestion(); });
+    function updateQPermitVisibility(){ qPermitWrap?.classList.toggle('hidden', qTopicSel?.value !== 'Permits'); }
+    qTopicSel?.addEventListener('change', updateQPermitVisibility); updateQPermitVisibility();
 
-    // Email submit -> Cloudflare Worker
+    // Email submit -> Worker
     const questionForm = document.getElementById('question-form');
     if (questionForm) questionForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-
       const topic = document.getElementById('q-topic')?.value?.trim() || "";
-      const permitType = (qPermitWrap && !qPermitWrap.classList.contains('hidden'))
-        ? (document.getElementById('q-permit-type')?.value?.trim() || "")
-        : "";
+      const permitType = (qPermitWrap && !qPermitWrap.classList.contains('hidden')) ? (document.getElementById('q-permit-type')?.value?.trim() || "") : "";
       const message = document.getElementById('q-text')?.value?.trim() || "";
       const email = document.getElementById('q-email')?.value?.trim() || "";
 
@@ -428,23 +387,19 @@
       submitBtn && (submitBtn.disabled = true, submitBtn.textContent = "Sending...");
 
       try {
-        const res = await fetch("https://permit-assistant.kantamneni-v.workers.dev/send-question", {
+        const res = await fetch(EMAIL_ENDPOINT, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ topic, permitType, message, email })
         });
-        if (!res.ok) {
-          const t = await res.text();
-          throw new Error(t || "Failed to send");
-        }
-
-        alert("Your question has been sent! We’ll get back to you by email.");
+        if (!res.ok) throw new Error(await res.text());
+        alert("Your question has been sent! Check your email for a confirmation.");
         questionForm.reset();
         if (qTopicSel && qPermitWrap) qPermitWrap.classList.toggle('hidden', qTopicSel.value !== 'Permits');
         hideQuestion();
       } catch (err) {
         console.error(err);
-        alert("Sorry, there was a problem sending your question. Please try again later.");
+        alert("Sorry, there was a problem sending your question. If it persists, contact support.");
       } finally {
         submitBtn && (submitBtn.disabled = false, submitBtn.textContent = prev || "Submit");
       }
@@ -456,9 +411,9 @@
     const closeChat = document.getElementById('close-chat');
     const showChat = () => openModal(chatModal);
     const hideChat = () => closeModal(chatModal);
-    chatBtn && chatBtn.addEventListener('click', showChat);
-    closeChat && closeChat.addEventListener('click', hideChat);
-    chatModal && chatModal.addEventListener('click', (e)=>{ if(e.target === chatModal) hideChat(); });
+    chatBtn?.addEventListener('click', showChat);
+    closeChat?.addEventListener('click', hideChat);
+    chatModal?.addEventListener('click', (e)=>{ if(e.target === chatModal) hideChat(); });
 
     // Chat -> Worker
     async function sendChat(){
@@ -481,7 +436,7 @@
       win.scrollTop = win.scrollHeight;
 
       try{
-        const res = await fetch("https://permit-assistant.kantamneni-v.workers.dev/chat", {
+        const res = await fetch(chatEndpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ message: msg })
@@ -490,7 +445,7 @@
         typing.remove();
         const bot = document.createElement('div');
         bot.className = 'text-sm text-gray-800 mt-2 font-medium';
-        bot.textContent = text;
+        bot.textContent = text || "No response.";
         win.appendChild(bot);
         win.scrollTop = win.scrollHeight;
       }catch(err){
