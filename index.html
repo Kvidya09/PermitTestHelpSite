@@ -416,46 +416,69 @@
     chatModal?.addEventListener('click', (e)=>{ if(e.target === chatModal) hideChat(); });
 
     // Chat -> Worker
-    async function sendChat(){
-      const input = document.getElementById('chat-input');
-      const win = document.getElementById('chat-window');
-      if (!input || !win) return;
-      const msg = input.value.trim();
-      if (!msg) return;
+    <script>
+  async function sendChat(){
+    const input = document.getElementById('chat-input');
+    const win = document.getElementById('chat-window');
+    if (!input || !win) return;
 
-      const userDiv = document.createElement('div');
-      userDiv.className = 'text-sm text-gray-700 mt-2';
-      userDiv.textContent = 'You: ' + msg;
-      win.appendChild(userDiv);
-      input.value = '';
+    const msg = input.value.trim();
+    if (!msg) return;
 
-      const typing = document.createElement('div');
-      typing.className = 'text-sm text-gray-400 mt-2 italic';
-      typing.textContent = 'Assistant is typing…';
-      win.appendChild(typing);
-      win.scrollTop = win.scrollHeight;
+    const userDiv = document.createElement('div');
+    userDiv.className = 'text-sm text-gray-700 mt-2';
+    userDiv.textContent = 'You: ' + msg;
+    win.appendChild(userDiv);
+    input.value = '';
 
-      try{
-        const res = await fetch(chatEndpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message: msg })
-        });
-        const text = await res.text();
-        typing.remove();
-        const bot = document.createElement('div');
-        bot.className = 'text-sm text-gray-800 mt-2 font-medium';
-        bot.textContent = text || "No response.";
-        win.appendChild(bot);
-        win.scrollTop = win.scrollHeight;
-      }catch(err){
-        typing.remove();
+    const typing = document.createElement('div');
+    typing.className = 'text-sm text-gray-400 mt-2 italic';
+    typing.textContent = 'Assistant is typing…';
+    win.appendChild(typing);
+    win.scrollTop = win.scrollHeight;
+
+    // 20s timeout so we don’t hang forever
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), 20000);
+
+    try{
+      const res = await fetch(chatEndpoint, {
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-store',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg }),
+        signal: ctrl.signal
+      });
+
+      const bodyText = await res.text(); // don’t assume JSON
+      clearTimeout(t);
+      typing.remove();
+
+      if (!res.ok) {
         const er = document.createElement('div');
         er.className = 'text-sm text-red-600 mt-2';
-        er.textContent = 'Network error contacting the assistant.';
+        er.textContent = `Chat error (${res.status}): ${bodyText || 'No response body'}`;
         win.appendChild(er);
+        return;
       }
+
+      const bot = document.createElement('div');
+      bot.className = 'text-sm text-gray-800 mt-2 font-medium';
+      bot.textContent = bodyText || 'No response.';
+      win.appendChild(bot);
+      win.scrollTop = win.scrollHeight;
+
+    }catch(err){
+      clearTimeout(t);
+      typing.remove();
+      const er = document.createElement('div');
+      er.className = 'text-sm text-red-600 mt-2';
+      er.textContent = `Network error: ${err?.name === 'AbortError' ? 'request timed out' : (err?.message || 'unknown')}`;
+      win.appendChild(er);
     }
+  }
+</script>
     document.getElementById('chat-send')?.addEventListener('click', sendChat);
     document.getElementById('chat-input')?.addEventListener('keydown', (e)=>{ if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); sendChat(); } });
 
@@ -466,3 +489,4 @@
   </script>
 </body>
 </html>
+
