@@ -416,8 +416,7 @@
     chatModal?.addEventListener('click', (e)=>{ if(e.target === chatModal) hideChat(); });
 
     // Chat -> Worker
-    <script>
-  async function sendChat(){
+    async function sendChat(){
     const input = document.getElementById('chat-input');
     const win = document.getElementById('chat-window');
     if (!input || !win) return;
@@ -478,7 +477,7 @@
       win.appendChild(er);
     }
   }
-</script>
+
     document.getElementById('chat-send')?.addEventListener('click', sendChat);
     document.getElementById('chat-input')?.addEventListener('keydown', (e)=>{ if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); sendChat(); } });
 
@@ -489,4 +488,5 @@
   </script>
 </body>
 </html>
+
 
