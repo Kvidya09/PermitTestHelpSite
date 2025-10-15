@@ -400,8 +400,53 @@
     qTopicSel && qTopicSel.addEventListener('change', updateQPermitVisibility);
     updateQPermitVisibility();
     const questionForm = document.getElementById('question-form');
-    if (questionForm) questionForm.addEventListener('submit', (e)=>{ e.preventDefault(); alert('Your question/comment submitted (demo).'); hideQuestion(); });
+if (questionForm) questionForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
 
+  const topic = document.getElementById('q-topic')?.value?.trim() || "";
+  const qPermitWrap = document.getElementById('q-permit-type-wrap');
+  const permitType = (qPermitWrap && !qPermitWrap.classList.contains('hidden'))
+    ? (document.getElementById('q-permit-type')?.value?.trim() || "")
+    : "";
+  const message = document.getElementById('q-text')?.value?.trim() || "";
+  const email = document.getElementById('q-email')?.value?.trim() || "";
+
+  // basic validation
+  if (!message) { alert("Please enter your question or comment."); return; }
+  if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { alert("Please enter a valid email address."); return; }
+
+  // UX: disable while sending
+  const submitBtn = questionForm.querySelector('button[type="submit"]');
+  const prev = submitBtn?.textContent;
+  submitBtn && (submitBtn.disabled = true, submitBtn.textContent = "Sending...");
+
+  try {
+    const res = await fetch(EMAIL_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ topic, permitType, message, email })
+    });
+    if (!res.ok) {
+      const t = await res.text();
+      throw new Error(t || "Failed to send");
+    }
+
+    alert("Your question has been sent! We’ll get back to you by email.");
+    questionForm.reset();
+
+    // keep nested field hidden until "Permits" is chosen again
+    const qTopicSel = document.getElementById('q-topic');
+    if (qTopicSel && qPermitWrap) qPermitWrap.classList.toggle('hidden', qTopicSel.value !== 'Permits');
+
+    // close modal
+    (typeof hideQuestion === 'function') && hideQuestion();
+  } catch (err) {
+    console.error(err);
+    alert("Sorry, there was a problem sending your question. Please try again later.");
+  } finally {
+    submitBtn && (submitBtn.disabled = false, submitBtn.textContent = prev || "Submit");
+  }
+});
     // Chat modal
     const chatModal = document.getElementById('chat-modal');
     const chatBtn = document.getElementById('chatbot-button');
@@ -413,7 +458,8 @@
     chatModal && chatModal.addEventListener('click', (e)=>{ if(e.target === chatModal) hideChat(); });
 
     // Cloudflare Worker chat endpoint (kept)
-    const chatEndpoint = "https://winter-mountain-087c.kantamneni-v.workers.dev/";
+    const chatEndpoint = "https://permit-assistant.kantamneni-v.workers.dev/chat";
+    const EMAIL_ENDPOINT = "https://permit-assistant.kantamneni-v.workers.dev/send-question";
     async function sendChat(){
       const input = document.getElementById('chat-input');
       const win = document.getElementById('chat-window');
@@ -452,6 +498,7 @@
     const chatInput = document.getElementById('chat-input');
     chatInput && chatInput.addEventListener('keydown', (e)=>{ if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); sendChat(); } });
 
+   
     // Mobile quick actions toolbar
     const actStart = document.getElementById('act-start');
     const actAsk = document.getElementById('act-ask');
@@ -462,3 +509,4 @@
   </script>
 </body>
 </html>
+
